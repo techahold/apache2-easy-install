@@ -36,8 +36,8 @@ apache2="$(cat << EOF
     ServerName ${domain}
     ServerAlias ${domain}
     DocumentRoot /var/www/${domain}
-    ErrorLog /${APACHE_LOG_DIR}/error.log
-    CustomLog /${APACHE_LOG_DIR}/access.log combined
+    ErrorLog /\${APACHE_LOG_DIR}/error.log
+    CustomLog /\${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
 EOF
@@ -50,6 +50,9 @@ sudo systemctl restart apache2
 
 #run certification
 sudo certbot --apache
+
+
+
 
 
 
