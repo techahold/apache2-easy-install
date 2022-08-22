@@ -11,7 +11,7 @@ sudo apt-get update && sudo apt-get -y upgrade
 #Install apache2 & mysql
 sudo apt-get install -y apache2
 sudo apt-get install -y mysql-server
-sudo mysql_secure_installation
+#sudo mysql_secure_installation
 sudo apt-get install -y php libapache2-mod-php php-mysql php-mbstring php-curl 
 sudo apt-get install -y rewrite libapache2-mod-md
 sudo apt-get install -y certbot python3-certbot-apache
