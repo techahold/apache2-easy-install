@@ -53,8 +53,20 @@ sudo systemctl restart apache2
 #run certification
 sudo certbot --apache
 
+# Setup MYSQL DB
+mysqlpwd=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 20 | head -n 1)
+mysqlusr=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 8 | head -n 1)
+mysqldb=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 8 | head -n 1)
 
 
+#Create MySQl DB
+    mysql -e "CREATE DATABASE ${mysqldb} /*\!40100 DEFAULT CHARACTER SET utf8 */;"
+    mysql -e "CREATE USER ${mysqlusr}@localhost IDENTIFIED BY '${mysqlpwd}';"
+    mysql -e "GRANT ALL PRIVILEGES ON ${mysqldb}.* TO '${mysqlusr}'@'localhost';"
+    mysql -e "FLUSH PRIVILEGES;"
 
+echo "Username is '${mysqlusr}'"
+echo "Password is '${mysqlpwd}'"
+echo "DB is called '${mysqldb}'"
 
 
