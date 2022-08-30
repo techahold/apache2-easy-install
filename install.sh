@@ -54,9 +54,9 @@ sudo systemctl restart apache2
 sudo certbot --apache
 
 # Setup MYSQL DB
-mysqlpwd=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 20 | head -n 1)
-mysqlusr=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 8 | head -n 1)
-mysqldb=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 8 | head -n 1)
+mysqlpwd=$(cat /dev/urandom | tr -dc 'A-Za-z0-9%&+?@^~' | fold -w 28 | head -n 1)
+mysqlusr=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 12 | head -n 1)
+mysqldb=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 12 | head -n 1)
 
 
 #Create MySQl DB
